@@ -4,6 +4,7 @@ require 'nokogiri'
 module Jekyll
   class ImagesCdn
     def self.modify_images(page)
+      return unless page.relative_path.end_with?(".html")
       return unless page.output.start_with?("<")
 
       config = page.site.config
